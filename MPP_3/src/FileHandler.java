@@ -5,6 +5,7 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Stream;
 
 public class FileHandler {
@@ -22,44 +23,49 @@ public class FileHandler {
         return languages;
     }
 
-    public static List<Vector> createLanguageVectorsFromFiles(String dataDir, List<String> languages) {
-        List<Vector> languageVectors = new ArrayList<>();
+    public static List<List<Vector>> createTrainingVectors(List<String> languages, String dataDir) {
+        List<List<Vector>> trainingVectors = new ArrayList<>();
         for (String language : languages) {
-            Vector languageVector = new Vector(new HashMap<>(), language);
-            // creates an empty map with all the letters from a to z and 0 as values
-            for (char c = 'a'; c <= 'z'; c++) {
-                languageVector.lettersMap().put(c, 0.0);
-            }
-
-            Path languageDir = Paths.get(dataDir, language);
-            try (Stream<Path> paths = Files.walk(languageDir, 1)) {
-                paths.filter(Files::isRegularFile)
-                        .forEach(path -> {
-                            try {
-                                List<String> lines = Files.readAllLines(path);
-                                for (String line : lines) {
-                                    for (char c : line.toLowerCase().toCharArray()) {
-                                        if (languageVector.lettersMap().containsKey(c)) {
-                                            languageVector.lettersMap().put(c, languageVector.lettersMap().get(c) + 1);
-                                        }
-                                    }
-                                }
-                            } catch (IOException e) {
-                                e.printStackTrace();
-                            }
-                        });
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            languageVectors.add(languageVector);
+            Path languagePath = Paths.get(dataDir, language);
+            List<Vector> languageVectors = createLanguageVectorsFromFiles(languagePath);
+            trainingVectors.add(languageVectors);
         }
+        return trainingVectors;
+    }
 
-        // normalizes each vector
-        for (Vector vector : languageVectors) {
-            vector.normalize();
+    private static List<Vector> createLanguageVectorsFromFiles(Path languagePath) {
+        List<Vector> languageVectors = new ArrayList<>();
+        // create vectors from each file in the Language directory
+        try (Stream<Path> paths = Files.walk(languagePath, 1)) {
+            paths.filter(Files::isRegularFile)
+                    .forEach(path -> {
+                        try {
+                            String text = Files.readString(path);
+                            Map<Character, Double> lettersMap = createLettersMap(text);
+                            languageVectors.add(new Vector(lettersMap, path.getFileName().toString()));
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    });
+        } catch (IOException e) {
+            e.printStackTrace();
         }
 
         return languageVectors;
+    }
+
+    public static Map<Character, Double> createLettersMap(String text) {
+        text = text.toLowerCase();
+        Map<Character, Double> lettersMap = new HashMap<>();
+        for (char c = 'a'; c <= 'z'; c++) {
+            lettersMap.put(c, 0.0);
+        }
+        for (char c : text.toCharArray()) {
+            if (lettersMap.containsKey(c)) {
+                lettersMap.put(c, lettersMap.get(c) + 1);
+            }
+        }
+        return lettersMap;
     }
 }
 
