@@ -10,6 +10,7 @@ public class LanguageGuesserGui {
     private JScrollPane scrollPane;
     private JButton guessButton;
     private JPanel buttonPanel;
+    private JLabel guessedLanguage;
 
     public LanguageGuesserGui() {
         JFrame frame = new JFrame("Language Guesser");
@@ -23,5 +24,17 @@ public class LanguageGuesserGui {
 
         guessButton.setFocusable(false);
 
+        guessButton.addActionListener(e -> {
+            String text = textInputArea.getText();
+            if (text.isEmpty()) {
+                JOptionPane.showMessageDialog(frame, "Please enter some text to guess the language.");
+            } else {
+                String language = Main.testPerceptrons(Main.perceptrons, text);
+                guessedLanguage.setText(language);
+//                Main.trainPerceptrons(Main.perceptrons, Main.trainingVectorsList, Main.epochs);
+            }
+        });
+
+        // procced when enter is pressed
     }
 }

@@ -12,11 +12,17 @@ public class Vector {
     public Vector(Map<Character, Double> lettersMap, String vectorLanguage) {
         this.lettersMap = lettersMap;
         this.vectorLanguage = vectorLanguage;
+        //normalizeEuclidean();
         normalize();
     }
 
     public void normalize() {
         int sum = lettersMap.values().stream().mapToInt(Double::intValue).sum();
+        lettersMap.replaceAll((k, v) -> v / sum);
+    }
+
+    public void normalizeEuclidean() {
+        double sum = Math.sqrt(lettersMap.values().stream().mapToDouble(value -> value * value).sum());
         lettersMap.replaceAll((k, v) -> v / sum);
     }
 

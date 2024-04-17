@@ -20,6 +20,7 @@ public class Perceptron {
         for (double weight : weights) {
             System.out.println(weight);
         }*/
+//        normalizeWeightsEuclidean();
         normalizeWeights();
         /*System.out.println("Weights after normalization: ");
         for (double weight : weights) {
@@ -30,11 +31,11 @@ public class Perceptron {
     private void initializeWeights() {
         for (int i = 0; i < weights.length; i++) {
             weights[i] = Math.random();
-            System.out.println("Weight " + i + ": " + weights[i]);
+            //System.out.println("Weight " + i + ": " + weights[i]);
         }
     }
 
-    private void normalizeWeights() {
+    private void normalizeWeightsEuclidean() {
         double sum = 0;
         for (double weight : weights) {
             sum += weight * weight;
@@ -45,27 +46,34 @@ public class Perceptron {
         }
     }
 
+    private void normalizeWeights() {
+        double sum = Arrays.stream(weights).sum();
+        for (int i = 0; i < weights.length; i++) {
+            weights[i] /= sum;
+        }
+    }
+
     private void initializeBias() {
         bias = Math.random() * 2 - 1;
     }
 
     public int guess(Vector vector) {
-        double sum = calculateSum(vector);
-        return sum > bias ? 1 : 0;
+        double net = calculateNet(vector);
+        return net > bias ? 1 : 0;
     }
 
     public double continuousGuess(Vector vector) {
-        double sum = calculateSum(vector);
-        return 1 / (1 + Math.exp(-sum)); // sigmoid function
+        double net = calculateNet(vector);
+        return 1 / (1 + Math.exp(-net));  // sigmoid function
     }
 
-    private double calculateSum(Vector vector) {
+    private double calculateNet(Vector vector) {
         double[] inputVectorValues = vector.getLettersMap().values().stream().mapToDouble(Double::doubleValue).toArray();
-        double sum = 0;
+        double net = 0;
         for (int i = 0; i < weights.length; i++) {
-            sum += inputVectorValues[i] * weights[i];
+            net += inputVectorValues[i] * weights[i];
         }
-        return sum;
+        return net;
     }
 
     public void train(Vector vector, int guess) {

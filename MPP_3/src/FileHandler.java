@@ -42,7 +42,7 @@ public class FileHandler {
                         try {
                             String text = Files.readString(path);
                             Map<Character, Double> lettersMap = createLettersMap(text);
-                            languageVectors.add(new Vector(lettersMap, path.getFileName().toString()));
+                            languageVectors.add(new Vector(lettersMap, path.getParent().getFileName().toString()));
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
