@@ -1,0 +1,33 @@
+Karbonylová skupina[1] alebo oxoskupina[1] je funkčná skupina, pozostávajúca z uhlíka a kyslíka spojených dvojitou väzbou.[2] Patrí medzi kyslíkaté deriváty. Nachádza sa v aldehydoch, ketónoch, karboxylových kyselinách a ich derivátoch ako súčasť väčších funkčných skupín. Látky s karbonylovou skupinou sa označujú ako karbonylové zlúčeniny.[3]
+
+Názov "karbonyl" sa takisto používa pre názov oxidu uhoľnatého ako ligandu v anorganických alebo organokovových komplexoch (vtedy ide o karbonyly kovov, napr. karbonyl niklu). Tento článok sa však zaoberá organickými zlúčeninami s karbonylovou skupinou ako je uvedené vyššie.
+
+Karbonylové zlúčeniny
+Pozri aj: α,β-Nenasýtené karbonylové zlúčeniny
+V organickej chémii patria medzi karbonylové zlúčeniny nasledujúce druhy zlúčenín:
+
+Zlúčenina	Aldehyd	Ketón	Karboxylová kyselina	Ester karboxylovej kyseliny	Amid
+Štruktúra	Aldehyde	Ketone	Carboxylic acid	Ester	Amide
+Všeobecný vzorec	RCHO	RCOR'	RCOOH	RCOOR'	RCONR'R''
+Zlúčenina	Enón	Acylhalogenid	Anhydrid karboxylovej kyseliny	Imid
+Štruktúra	Enone	Acyl chloride	Acid anhydride	Imide
+Všeobecný vzorec	RC(O)C(R')CR''R'''	RCOX	(RCO)2O	RC(O)N(R')C(O)R''
+Medzi ďalšie organické zlúčeniny obsahujúce karbonylovú zlúčeninu patria močovina a karbamáty, deriváty acylchloridov (napr. chlórmravčany alebo fosgén), estery kyseliny uhličitej, tioestery, laktóny, laktámy, hydroxamáty a izokyanáty. Špeciálnou skupinou karbonylových zlúčenín sú dikarbonylové zlúčeniny, ktoré niekedy majú špeciálne vlastnosti.
+
+Za anorganické karbonylové zlúčeniny možno pokladať oxidy uhoľnatý a uhličitý.
+
+Štruktúra a reaktivita
+
+Štruktúra karbonylovej skupiny
+U organických zlúčenín je dĺžka dvojitej väzby C-O zvyčajne okolo 120 pikometrov. V anorganických karbonyloch môžu tieto vzdialenosti byť kratšie (CO, 113 pm, CO2, 116 pm, COCl2, 116 pm).[4]
+
+Karbonylový uhlík je zvyčajne elektrofilný. Atóm kyslíka totižto odťahuje elektrónovú hustotu, takže na uhlíku vzniká parciálny kladný náboj. Elektrofilita klesá v poradí RCHO (aldehydy) > R2CO (ketóny) > RCO2R' (estery) > RCONH2 (amidy). Mnohé nukleofily môžu atakovať tento uhlík, čím dochádza k zániku dvojitej väzby.
+
+Interakcie medzi karbonylovou skupinou a inými skupinami boli objavené pri štúdiách kolagénu.[5] Rôzne substituenty môžu ovplyvniť karbonylovú skupinu dodaním alebo odobraním elektrónovej hustoty po sigma väzbách.[6] Hodnoty ΔHσ sú výrazne vyššie na karbonylových skupinách, ktoré majú na uhlík naviazané atómy, ktoré sú viac elektronegatívne než uhlík.[6]
+
+Polarita väzby C=O takisto zvyšuje kyslosť blízkych C-H väzieb. Vďaka kladnému náboju na uhlíku a zápornému náboju na kyslíku podliehajú karbonylové zlúčniny adícii alebo nukleofilným atakom. Mnohé nukleofilné ataky vedú k zániku dvojitej väzby a adične-eliminačným reakciám. Nukleofilná reaktivita je často úmerná zásaditosti nukleofilu a so zvyšovaním nukleofility klesá stabilita karbonylovej zlúčeniny.[7] pKa hodnoty acetaldehydu a acetónu sú 16,7 a 19.[8]
+
+Spektroskopia
+Infračervená spektroskopia: dvojitá väzba C=O absorbuje infračervené žiarenie pri vlnočtoch okolo 1600–1900 cm−1(5263 nm až 6250 nm). Presný poloha maxima absorpcie je daná geometriou molekuly.
+UV-Vis spektroskopia: Absorpcia karbonylovej skupiny propanónu vo vode sa nachádza pri 257 nm.[9]
+Nukleárna magnetická rezonancia: Dvojitá väzba C=O má rôzne rezonancie podľa okolitých atómov. Pri 13C NMR sa karbonylový kyslík nachádza v rozmedzí 160-220 ppm.[chýba zdroj]

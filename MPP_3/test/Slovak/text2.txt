@@ -1,0 +1,56 @@
+Anorganické reakcie
+Anorganické reakcie možno klasifikovať dvoma hlavnými spôsobmi:[1]
+
+podľa zmeny počtu východiskových látok:
+zlučovanie (syntéza) – z dvoch alebo viacerých látok vzniká jedna látka
+rozklad (analýza) – z jednej látky vznikajú dve alebo viac látok
+zámena (substitúcia) – reakciou jednoduchej látky so zlúčeninou vzniká iná jednoduchá látka a iná zlúčenina
+podvojná zámena (podvojná substitúcia) – z dvoch zlúčenín vznikajú dve iné zlúčeniny
+premena (transmutácia) – reakciou jednej látky vzniká iná látka
+podľa vlastností reagujúcich látok:
+acidobázické reakcie (takisto nazývané protolytické reakcie) – reakcie kyselín a zásad, pri ktorých dochádza k výmene protónu (respektíve presnejšie hydrónu)
+komplexotvorné reakcie – reakcie, pri ktorých vzniká, alebo sa štiepi koordinačná väzba (dochádza k vzniku, alebo zániku koordinačnej zlúčeniny)
+redoxné reakcie – nastáva pri nich výmena elektrónov medzi oxidovadlom a redukovadlom
+vylučovacie reakcie (takisto nazývané zrážacie reakcie) – reakcie, kde minimálne jeden reakčný produkt existuje v inej fáze, ako reakčné prostredie (zvyčajne tvorba zrazeniny alebo prchavej látky)
+Organické reakcie
+Organické reakcie takisto možno deliť rôznymi spôsobmi. Zvyčajne sa klasifikujú jedným z následovných spôsobov:[2]
+
+podľa reakčnej cesty:
+adičné reakcie (A) – spájanie zlúčenín dokopy
+eliminačné reakcie (E) – rozklad zlúčeniny
+substitúčné reakcie (S) – náhrada jednej funkčnej skupiny za inú
+molekulárne prešmyky – preusporiadanie atómov v molekule
+podľa spôsobu vzniku a zániku väzieb:
+homolytické (readikálové) reakcie – oba reaktanty majú rovnaký počet elektrónov (jeden nepárový elektrón), ide o reakcie radikálov
+heterolytické (polárne, iónové) reakcie – každý reaktant má iný počet elektrónov (jeden reaktant má celý elektrónový pár a druhý reaktant má voľný orbitál), a možno ich ďalej deliť na
+elektrofilné reakcie (E) – látka reaguje s elektrofilom (zlúčeninou s voľným orbitálom)
+nukleofilné reakcie (N) – látka reaguje s nukleofilom (zlúčenou s elektrónovým párom)
+podľa zložiek určujúcich rýchlosť reakcie:
+monomolekulové reakcie – rýchlosť reakcie závisí na koncentrácií jedinej látky (napr. SN1, E1)
+bimolekulové reakcie – rýchlosť reakcie závisí na koncentrácií dvoch látok, ktoré spolu reagujú (napr. SN2, E2)
+viacmolekulové reakcie – rýchlosť reakcie závisí na koncentrácií viac ako dvoch látok
+Iné delenia
+Okrem vyššie uvedených delení je možné reakcie deliť i na základe ďalších vlastností:
+
+podľa toho, či pri reakcii vzniká alebo sa spotrebúva teplo:[1]
+exotermická reakcia – teplo vzniká
+endotermická reakcia – teplo sa spotrebúva
+podľa energetickej bilancie (za predpokladu, že sa reakčná zmes nezohrieva a neochladzuje):
+exergonická reakcia – energia sa uvoľňuje
+endergonická reakcia – energia sa spotrebováva
+podľa toho, či sú všetky zložky v jednej fáze:[1]
+homogénne reakcie – všetky zložky sú v jednej fáze (napríklad v roztoku)
+heterogénne reakcie – niektoré zložky sú v inej fáze (napríklad reakcie s pevnými katalyzátormi)
+podľa mechanizmu, ktorým reakcie prebiehajú z hľadiska chemickej kinetiky:[1]
+izolované reakcie – prebiehajú podľa rovníc nultého, prvého, druhého alebo tretieho poriadku
+súčasné reakcie – neriadia sa uvedenými pravidlami, a možno ich ďalej deliť na
+zvratné reakcie – prebiehajú oboma smermi
+bočné reakcie – z jednej látky vznikajú dva rôzne produkty naraz
+postupné reakcie – z jednej látky vzniká medziprodukt, ktorý sa potom mení na koncový produkt
+spojené reakcie – jedna reakcia prebieha spolu s druhou, ktorá ju indikuje
+reťazové reakcie – v reakciách dochádza k obnove nejakej entity, ktorá je schopná znovu reagovať v tej istej alebo podobnej reakcii (napríklad polymerizačné reakcie)
+podľa počtu reagujúcich molekúl, teda molekularity reakcie:
+unimolekulové reakcie – reaguje len jedna molekula (napríklad rozpad alebo izomerizácia)[3]
+bimolekulové reakcie – reagujú dve molekuly[4]
+trimolekulové reakcie – reagujú tri molekuly (nemusia byť rôzne)[5]
+Špecifickými typmi reakcií sú katalyzované reakcie[1] (prebiehajúce za prítomnosti katalyzátoru) a enzýmové reakcie (prebiehajúce za prítomnosti enzýmov).

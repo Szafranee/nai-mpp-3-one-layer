@@ -6,8 +6,8 @@ import java.util.Map;
 
 public class Main {
 
-    static double learningRate = 0.1;
-    static int epochs = 1;
+    static double learningRate = 0.07;
+    static int epochs = 1000;
 
     static List<Perceptron> perceptrons;
     static List<List<Vector>> trainingVectorsList;
