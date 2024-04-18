@@ -14,7 +14,7 @@ public class Perceptron {
         initializeBias();
     }
 
-    private void initializeAndNormalizeWeights() {
+    public void initializeAndNormalizeWeights() {
         initializeWeights();
         /*System.out.println("Weights before normalization: ");
         for (double weight : weights) {

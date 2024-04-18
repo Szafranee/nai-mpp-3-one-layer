@@ -20,12 +20,16 @@ public class FileHandler {
         return languages;
     }
 
-    public static List<List<Vector>> createTrainingVectors(List<String> languages, String dataDir) {
-        List<List<Vector>> trainingVectors = new ArrayList<>();
+    public static List<Vector> createVectorList(List<String> languages, String dataDir) {
+        List<Vector> trainingVectors = new ArrayList<>();
         for (String language : languages) {
             Path languagePath = Paths.get(dataDir, language);
             List<Vector> languageVectors = createLanguageVectorsFromFiles(languagePath);
-            trainingVectors.add(languageVectors);
+            trainingVectors.addAll(languageVectors);
+        }
+        Collections.shuffle(trainingVectors);
+        for(Vector vector : trainingVectors) {
+            System.out.println(vector.getVectorLanguage());
         }
         return trainingVectors;
     }
