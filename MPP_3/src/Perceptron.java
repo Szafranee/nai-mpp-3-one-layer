@@ -63,8 +63,7 @@ public class Perceptron {
     }
 
     public double continuousGuess(Vector vector) {
-        double net = calculateNet(vector);
-        return 1 / (1 + Math.exp(-net));  // sigmoid function
+        return calculateNet(vector);
     }
 
     private double calculateNet(Vector vector) {

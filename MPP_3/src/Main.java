@@ -6,11 +6,12 @@ import java.util.Map;
 
 public class Main {
 
-    static double learningRate = 0.07;
-    static int epochs = 1000;
+    static double learningRate = 0.01;
+    static int epochs = 10;
 
     static List<Perceptron> perceptronLayer;
     static List<Vector> trainingVectorsList;
+    static List<Vector> testVectorsList;
     static List<String> languagesList;
     static String dataDir = "data";
 
@@ -25,14 +26,17 @@ public class Main {
         for (String language : languagesList) {
             System.out.println(language);
         }
+        System.out.println("----------------------");
         trainingVectorsList = FileHandler.createVectorList(languagesList, dataDir);
+        testVectorsList = FileHandler.createVectorList(languagesList, "test");
         System.out.println("------------------------");
         System.out.println("Training vectors created.");
         System.out.println("------------------------");
 
         perceptronLayer = createPerceptrons(learningRate);
 
-        trainPerceptrons(perceptronLayer, trainingVectorsList, epochs);
+        trainPerceptrons(perceptronLayer, trainingVectorsList);
+        testPerceptrons(perceptronLayer, testVectorsList);
 
         SwingUtilities.invokeLater(LanguageGuesserGui::new);
     }
@@ -47,41 +51,64 @@ public class Main {
             perceptrons.add(perceptron);
         }
         System.out.println("Perceptrons created.");
-        for (Perceptron perceptron : perceptrons) {
+        /*for (Perceptron perceptron : perceptrons) {
             System.out.println(perceptron.perceptronLanguage);
-        }
-        System.out.println("------------------------");
+        }*/
+        /*System.out.println("------------------------");
         System.out.println("Creating perceptrons...");
         System.out.println(perceptrons);
-        System.out.println("------------------------");
+        System.out.println("------------------------");*/
 
         return perceptrons;
 
     }
 
-    public static void trainPerceptrons(List<Perceptron> perceptrons, List<Vector> trainingVectorsList, int epochs) {
+    public static void trainPerceptrons(List<Perceptron> perceptrons, List<Vector> trainingVectorsList) {
         System.out.println("Training perceptrons...");
         for (Perceptron perceptron : perceptrons) {
-            for (Vector vector : trainingVectorsList) {
-                int target = vector.getVectorLanguage().equals(perceptron.perceptronLanguage) ? 1 : 0;
-                int guess = perceptron.guess(vector);
-                if (target != guess) {
-                    perceptron.train(vector, guess);
-                }
-            }
+            trainPerceptronOnVectors(trainingVectorsList, perceptron);
             System.out.println("Perceptron for " + perceptron.perceptronLanguage + " trained.");
         }
 
         System.out.println("------------------------");
         System.out.println("Perceptrons trained.");
-        System.out.println(perceptrons);
         System.out.println("------------------------");
+    }
+
+    public static void testPerceptrons(List<Perceptron> perceptrons, List<Vector> testVectors) {
+        System.out.println("Testing perceptrons...");
+        int iterations = 0;
+        while (checkAccuracy(perceptrons, testVectors) < 100) {
+            System.out.println("Accuracy: " + checkAccuracy(perceptrons, testVectors) + "%");
+            for (Perceptron perceptron : perceptrons) {
+                perceptron.initializeAndNormalizeWeights();
+            }
+
+            for (int i = 0; i < epochs && checkAccuracy(perceptrons, testVectors) < 100; i++) {
+                System.out.println("Accuracy: " + checkAccuracy(perceptrons, testVectors) + "%");
+                for (Perceptron perceptron : perceptrons) {
+                    trainPerceptronOnVectors(trainingVectorsList, perceptron);
+                }
+            }
+            iterations++;
+        }
+        System.out.println("Perceptrons tested.");
+        System.out.println("Final accuracy: " + checkAccuracy(perceptrons, testVectors) + "%");
+        System.out.println("Iterations: " + iterations);
+    }
+
+    private static void trainPerceptronOnVectors(List<Vector> trainingVectorsList, Perceptron perceptron) {
+        for (Vector vector : trainingVectorsList) {
+            int target = vector.getVectorLanguage().equals(perceptron.perceptronLanguage) ? 1 : 0;
+            int guess = perceptron.guess(vector);
+            if (target != guess) {
+                perceptron.train(vector, guess);
+            }
+        }
     }
 
     public static String guessLanguage(List<Perceptron> perceptrons, String text) {
         Vector testVector = new Vector(FileHandler.createLettersMap(text));
-//        System.out.println(testVector);
-        System.out.println(testVector);
         Map<String, Double> guesses = new HashMap<>();
         for (Perceptron perceptron : perceptrons) {
             double guess = perceptron.continuousGuess(testVector);
@@ -97,24 +124,28 @@ public class Main {
         String result = guesses.entrySet().stream().max(Map.Entry.comparingByValue()).get().getKey();
         System.out.println(result);
 
-        System.out.println("Smallest guess value: ");
-        System.out.println(guesses.entrySet().stream().min(Map.Entry.comparingByValue()).get().getKey());
-
         return result;
+    }
+
+    public static String guessLanguageForTest(List<Perceptron> perceptrons, Vector testVector) {
+        Map<String, Double> guesses = new HashMap<>();
+        for (Perceptron perceptron : perceptrons) {
+            double guess = perceptron.continuousGuess(testVector);
+            guesses.put(perceptron.perceptronLanguage, guess);
+        }
+
+        return guesses.entrySet().stream().max(Map.Entry.comparingByValue()).get().getKey();
     }
 
     public static double checkAccuracy(List<Perceptron> perceptrons, List<Vector> testVectors) {
         int correctGuesses = 0;
-        for (Perceptron perceptron : perceptrons) {
-            for (Vector vector : testVectors) {
-                int target = vector.getVectorLanguage().equals(perceptron.perceptronLanguage) ? 1 : 0;
-                int guess = perceptron.guess(vector);
-                if (target == guess) {
-                    correctGuesses++;
-                }
+        for (Vector vector : testVectors) {
+            String guess = guessLanguageForTest(perceptrons, vector);
+            if (guess.equals(vector.getVectorLanguage())) {
+                correctGuesses++;
             }
         }
-        return (double) correctGuesses / testVectors.size();
+        return (double) correctGuesses / testVectors.size() * 100;
     }
 
 }

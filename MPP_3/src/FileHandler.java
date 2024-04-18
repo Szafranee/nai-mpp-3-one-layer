@@ -28,9 +28,6 @@ public class FileHandler {
             trainingVectors.addAll(languageVectors);
         }
         Collections.shuffle(trainingVectors);
-        for(Vector vector : trainingVectors) {
-            System.out.println(vector.getVectorLanguage());
-        }
         return trainingVectors;
     }
 
