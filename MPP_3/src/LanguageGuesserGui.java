@@ -29,7 +29,7 @@ public class LanguageGuesserGui {
             if (text.isEmpty()) {
                 JOptionPane.showMessageDialog(frame, "Please enter some text to guess the language.");
             } else {
-                String language = Main.testPerceptrons(Main.perceptrons, text);
+                String language = Main.testPerceptrons(Main.perceptronLayer, text);
                 guessedLanguage.setText(language);
 //                Main.trainPerceptrons(Main.perceptrons, Main.trainingVectorsList, Main.epochs);
             }

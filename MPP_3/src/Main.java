@@ -9,15 +9,16 @@ public class Main {
     static double learningRate = 0.07;
     static int epochs = 1000;
 
-    static List<Perceptron> perceptrons;
+    static List<Perceptron> perceptronLayer;
     static List<List<Vector>> trainingVectorsList;
+    static List<String> languagesList;
 
     public static void main(String[] args) {
         new Main().run();
     }
 
     public void run() {
-        List<String> languagesList = FileHandler.getLanguages("Languages");
+        languagesList = FileHandler.getLanguages("Languages");
         System.out.println("Available languages: ");
         System.out.println("----------------------");
         for (String language : languagesList) {
@@ -28,9 +29,9 @@ public class Main {
         System.out.println("Training vectors created.");
         System.out.println("------------------------");
 
-        perceptrons = createPerceptrons(trainingVectorsList, learningRate);
+        perceptronLayer = createPerceptrons(trainingVectorsList, learningRate);
 
-        trainPerceptrons(perceptrons, trainingVectorsList, epochs);
+        trainPerceptrons(perceptronLayer, trainingVectorsList, epochs);
 
         SwingUtilities.invokeLater(LanguageGuesserGui::new);
     }
@@ -39,10 +40,11 @@ public class Main {
     public static List<Perceptron> createPerceptrons(List<List<Vector>> trainingVectorsList, double learningRate) {
         List<Perceptron> perceptrons = new ArrayList<>();
 
-        for (List<Vector> trainingVectors : trainingVectorsList) {
-            String perceptronLanguage = trainingVectors.getFirst().getVectorLanguage();
-            int weightsSize = trainingVectors.getFirst().getLettersMap().size();
-            Perceptron perceptron = new Perceptron(perceptronLanguage, weightsSize, learningRate);
+        for (String language : languagesList) {
+            int weightsSize = trainingVectorsList.stream()
+                    .filter(vectors -> vectors.getFirst().getVectorLanguage().equals(language))
+                    .findFirst().get().getFirst().getLettersMap().size();
+            Perceptron perceptron = new Perceptron(language, weightsSize, learningRate);
             perceptrons.add(perceptron);
         }
         System.out.println("Perceptrons created.");
